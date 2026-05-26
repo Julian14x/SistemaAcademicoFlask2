@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de Asignaturas{% endblock %}
+
+{% block content %}
+<h2>Listado de Asignaturas</h2>
+<ul>
+  {% for asignatura in asignaturas %}
+    <li>{{ asignatura.id_asignatura }} - {{ asignatura.nombre }} ({{ asignatura.creditos }} créditos)</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('asignaturas.crear_asignatura') }}">Crear nueva asignatura</a>
+{% endblock %}

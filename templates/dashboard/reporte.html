@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Reporte Académico{% endblock %}
+
+{% block content %}
+<h2> Reporte Académico</h2>
+
+<div class="cards">
+    <div class="card azul">
+        <h3>Total Estudiantes</h3>
+        <p>{{ total_estudiantes }}</p>
+    </div>
+    <div class="card rojo">
+        <h3>Alertas Activas</h3>
+        <p>{{ total_alertas }}</p>
+    </div>
+    <div class="card naranja">
+        <h3>Riesgo Alto</h3>
+        <p>{{ riesgo_alto }}</p>
+    </div>
+    <div class="card verde">
+        <h3>Promedio General</h3>
+        <p>{{ promedio_general | round(2) }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Listado de Alertas{% endblock %}
+
+{% block content %}
+<h2> Alertas Académicas</h2>
+
+<table class="alertas">
+  <tr>
+    <th>ID</th>
+    <th>Estudiante</th>
+    <th>Nota Final</th>
+    <th>Nivel de Riesgo</th>
+    <th>Fecha de Generación</th>
+    <th>Estado</th>
+    <th>Acción</th>
+  </tr>
+  {% for alerta in alertas %}
+  <tr>
+    <td>{{ alerta.id_alerta }}</td>
+    <td>{{ alerta.estudiante }}</td>
+    <td>{{ alerta.nota_final }}</td>
+    <td>{{ alerta.nivel_riesgo }}</td>
+    <td>{{ alerta.fecha_generacion }}</td>
+    <td>{{ alerta.estado }}</td>
+    <td>
+      {% if alerta.estado != 'atendida' %}
+        <a href="/alertas/atender/{{ alerta.id_alerta }}">Atender</a>
+      {% endif %}
+      <a href="/alertas/eliminar/{{ alerta.id_alerta }}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

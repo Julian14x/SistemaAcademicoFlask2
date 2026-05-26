@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Editar Matrícula{% endblock %}
+
+{% block content %}
+<h2>Editar Matrícula</h2>
+
+<form method="POST">
+    <!-- Estudiante (solo lectura, ya está inscrito) -->
+    <label for="id_estudiante">Estudiante:</label>
+    <input type="text" name="id_estudiante" value="{{ matricula.id_estudiante }}" readonly>
+
+    <!-- Asignatura (solo lectura, ya está inscrita) -->
+    <label for="id_asignatura">Asignatura:</label>
+    <input type="text" name="id_asignatura" value="{{ matricula.id_asignatura }}" readonly>
+
+    <!-- Periodo académico -->
+    <label for="periodo_academico">Periodo Académico:</label>
+    <input type="text" name="periodo_academico" value="{{ matricula.periodo_academico }}" required>
+
+    <!-- Nota final -->
+    <label for="nota_final">Nota Final:</label>
+    <input type="number" step="0.1" name="nota_final" value="{{ matricula.nota_final }}" required>
+
+    <!-- Porcentaje de asistencia -->
+    <label for="porcentaje_asistencia">Porcentaje de Asistencia:</label>
+    <input type="number" name="porcentaje_asistencia" value="{{ matricula.porcentaje_asistencia }}" required>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

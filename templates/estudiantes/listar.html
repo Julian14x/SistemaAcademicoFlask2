@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Estudiantes{% endblock %}
+
+{% block content %}
+<h2>Listado de Estudiantes</h2>
+
+<!-- Botón para crear nuevo estudiante -->
+<a href="/estudiantes/crear" class="btn btn-success"> Crear Estudiante</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+            <th>ID Programa</th>
+            <th>Semestre Actual</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Bucle Jinja para recorrer estudiantes -->
+        {% for e in estudiantes %}
+        <tr>
+            <td>{{ e.id_estudiante }}</td>
+            <td>{{ e.nombre }}</td>
+            <td>{{ e.apellido }}</td>
+            <td>{{ e.documento }}</td>
+            <td>{{ e.id_programa }}</td>
+            <td>{{ e.semestre_actual }}</td>
+            <td>{{ e.estado }}</td>
+            <td>
+                <a href="/estudiantes/editar/{{ e.id_estudiante }}" class="btn btn-primary"> Editar</a>
+                <a href="/estudiantes/eliminar/{{ e.id_estudiante }}" class="btn btn-danger"> Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

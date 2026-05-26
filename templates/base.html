@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema Académico{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/estudiantes">Estudiantes</a></li>
+            <li><a href="/asignaturas">Asignaturas</a></li>
+            <li><a href="/matriculas">Matrículas</a></li>
+            <li><a href="/alertas">Alertas</a></li>
+            <li><a href="/logout">Salir</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Sistema Académico © 2026</p>
+    </footer>
+</body>
+</html>

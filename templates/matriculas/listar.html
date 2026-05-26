@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Listado de Matrículas{% endblock %}
+
+{% block content %}
+<h2>Listado de Matrículas</h2>
+<a href="/matriculas/crear" class="btn-primary">Crear Matrícula</a>
+
+<table class="matriculas">
+  <tr>
+    <th>ID</th>
+    <th>Estudiante</th>
+    <th>Asignatura</th>
+    <th>Acciones</th>
+  </tr>
+  {% for m in matriculas %}
+  <tr>
+    <td>{{ m.id_matricula }}</td>
+    <td>{{ m.estudiante_nombre }}</td>
+    <td>{{ m.asignatura_nombre }}</td>
+    <td>
+      <a href="/matriculas/editar/{{ m.id_matricula }}" class="btn-primary">Editar</a>
+      <a href="/matriculas/eliminar/{{ m.id_matricula }}" class="btn-danger">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

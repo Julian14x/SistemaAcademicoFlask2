@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Crear Matrícula{% endblock %}
+
+{% block content %}
+<h2>Crear Matrícula</h2>
+
+<form method="POST">
+    <!-- Selección de estudiante -->
+    <label for="id_estudiante">Estudiante:</label>
+    <select name="id_estudiante" required>
+        {% for e in estudiantes %}
+        <option value="{{ e.id_estudiante }}">{{ e.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <!-- Selección de asignatura -->
+    <label for="id_asignatura">Asignatura:</label>
+    <select name="id_asignatura" required>
+        {% for a in asignaturas %}
+        <option value="{{ a.id_asignatura }}">{{ a.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <!-- Periodo académico -->
+    <label for="periodo_academico">Periodo Académico:</label>
+    <input type="text" name="periodo_academico" placeholder="2026-1" required>
+
+    <!-- Nota final -->
+    <label for="nota_final">Nota Final:</label>
+    <input type="number" step="0.1" name="nota_final" required>
+
+    <!-- Porcentaje de asistencia -->
+    <label for="porcentaje_asistencia">Porcentaje de Asistencia:</label>
+    <input type="number" name="porcentaje_asistencia" required>
+
+    <button type="submit">Guardar Matrícula</button>
+</form>
+{% endblock %}

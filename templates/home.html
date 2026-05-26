@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido al Sistema Académico</h1>
+<p>Selecciona una sección para continuar:</p>
+
+<div class="cards">
+    <div class="card">
+        <h3> Dashboard</h3>
+        <p>Resumen de métricas clave.</p>
+        <a href="/dashboard" class="btn">Ir</a>
+    </div>
+    <div class="card">
+        <h3> Estudiantes</h3>
+        <p>Gestión de información de estudiantes.</p>
+        <a href="/estudiantes" class="btn">Ir</a>
+    </div>
+    <div class="card">
+        <h3> Matrículas</h3>
+        <p>Registro y control de matrículas.</p>
+        <a href="/matriculas" class="btn">Ir</a>
+    </div>
+    <div class="card">
+        <h3> Alertas</h3>
+        <p>Monitoreo de riesgos académicos.</p>
+        <a href="/alertas" class="btn">Ir</a>
+    </div>
+</div>
+{% endblock %}
