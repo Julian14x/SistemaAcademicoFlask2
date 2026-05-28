@@ -1,10 +1,9 @@
-import os
-import json
 import firebase_admin
-from firebase_admin import credentials
+from firebase_admin import credentials, firestore
 
-# Carga las credenciales desde la variable de entorno de Vercel
-cred_json = json.loads(os.environ.get('FIREBASE_CREDENCIAL'))
-cred = credentials.Certificate(cred_json)
+# Inicializar Firebase solo una vez
+cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
+# Cliente Firestore
+db = firestore.client()

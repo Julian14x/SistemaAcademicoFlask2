@@ -27,7 +27,7 @@ def login():
         else:
             return render_template('auth/login.html', error="Usuario o contraseña incorrectos")
 
-    return render_template('auth/login.html')
+    return render_template('asignaturas/auth/login.html')
 
 # LOGOUT
 @auth_bp.route('/logout')
