@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import Blueprint, render_template, request, redirect, session
 
 # IMPORTAR BLUEPRINTS
 from routes.estudiantes import estudiante_bp
@@ -28,10 +29,15 @@ app.register_blueprint(asignatura_bp)
 app.secret_key = "clave-secreta"
 
 
-# RUTA PRINCIPAL
+# Ruta principal
 @app.route('/')
-def inicio():
-    return "Sistema de deserción estudiantil funcionando con Firestore 🚀"
+def home():
+    return render_template('home.html')
+
+# Ruta dashboard (redirige después del login)
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
 # EJECUTAR APLICACIÓN
 if __name__ == '__main__':
