@@ -25,6 +25,9 @@ app.register_blueprint(dashboard_bp)
 app.register_blueprint(home_bp)
 app.register_blueprint(asignatura_bp)
 
+app.secret_key = "clave-secreta"
+
+
 # RUTA PRINCIPAL
 @app.route('/')
 def inicio():
